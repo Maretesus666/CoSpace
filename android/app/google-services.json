@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "267944691460",
+    "project_id": "cospace-58fec",
+    "storage_bucket": "cospace-58fec.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:267944691460:android:809a5b5300aaddc8da3251",
+        "android_client_info": {
+          "package_name": "com.example.cospace"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDelZyWcemEpu-jgAd1iwZgxBO4CBIl9Lo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

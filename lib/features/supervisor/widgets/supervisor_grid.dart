@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'supervisor_card.dart';
-import '../../chat/chat_screen.dart';
+import '../../notifications/notifications_screen.dart';
 import '../../announcements/announcements_screen.dart';
 import '../../questions/questions_screen.dart';
 
@@ -16,12 +16,12 @@ class SupervisorGrid extends StatelessWidget {
       childAspectRatio: 1.5,
       children: [
         SupervisorCard(
-          icon: Icons.chat_bubble_outline,
-          title: "Chat",
+          icon: Icons.notifications_outlined,
+          title: "Notificaciones",
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (_) => const ChatScreen()),
+              MaterialPageRoute(builder: (_) => NotificationsScreen()),
             );
           },
         ),
