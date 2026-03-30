@@ -152,4 +152,46 @@ class AnnouncementService {
       rethrow;
     }
   }
+
+  /// Incrementar contador de vistas para un usuario específico (solo una vez por usuario)
+  Future<void> incrementViewCount(String announcementId, String userId) async {
+    try {
+      final doc = await _firestore.collection(_collection).doc(announcementId).get();
+      final viewers = List<String>.from(doc['viewers'] ?? []);
+      
+      // Solo agregar si el usuario no ha visto antes
+      if (!viewers.contains(userId)) {
+        viewers.add(userId);
+        await _firestore.collection(_collection).doc(announcementId).update({
+          'viewers': viewers,
+          'viewCount': viewers.length,
+        });
+      }
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  /// Registrar respuesta correcta a una pregunta
+  Future<void> recordCorrectAnswer(String announcementId) async {
+    try {
+      await _firestore.collection(_collection).doc(announcementId).update({
+        'correctAnswers': FieldValue.increment(1),
+        'totalAnswers': FieldValue.increment(1),
+      });
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  /// Registrar respuesta incorrecta a una pregunta
+  Future<void> recordIncorrectAnswer(String announcementId) async {
+    try {
+      await _firestore.collection(_collection).doc(announcementId).update({
+        'totalAnswers': FieldValue.increment(1),
+      });
+    } catch (e) {
+      rethrow;
+    }
+  }
 }

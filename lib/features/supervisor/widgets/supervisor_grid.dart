@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'supervisor_card.dart';
 import '../../notifications/notifications_screen.dart';
 import '../../announcements/announcements_screen.dart';
-import '../../questions/questions_screen.dart';
+import '../../seguimiento/seguimiento_screen.dart';
 
 class SupervisorGrid extends StatelessWidget {
   const SupervisorGrid({super.key});
@@ -41,7 +41,7 @@ class SupervisorGrid extends StatelessWidget {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (_) => const QuestionsScreen()),
+              MaterialPageRoute(builder: (_) => const SeguimientoScreen()),
             );
           },
         ),
